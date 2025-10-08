@@ -23,13 +23,11 @@ export default function HomeScreen() {
             if (!response.ok) {
                 const errorText = await response.text();
                 console.error('Error al sincronizar con BD:', errorText);
-                Alert.alert('Error', 'No se pudo sincronizar la cuenta con el servidor. Intente más tarde.');
                 return false;
             }
             return true;
         } catch (error) {
             console.error('Error de conexión al sincronizar:', error);
-            Alert.alert('Error', 'Fallo de conexión con el servidor. Verifique su red.');
             return false;
         }
     };
@@ -39,7 +37,6 @@ export default function HomeScreen() {
             await authorize({ scope: 'openid profile email' });
         } catch (e) {
             console.error('Error de Auth0:', e);
-            Alert.alert('Error de Login', 'El inicio de sesión falló. Revise su conexión y el Callback URL.');
         }
     };
 
