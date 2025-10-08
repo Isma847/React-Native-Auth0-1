@@ -18,14 +18,12 @@ export default function HomeScreen() {
             router.replace('/(tabs)'); 
         } catch (e) {
             console.error('Error al cerrar sesión:', e);
-            Alert.alert('Error', 'No se pudo cerrar la sesión.');
         }
     };
 
     const handleUpdate = async () => {
         setLoading(true);
         if (!user?.sub) {
-            Alert.alert('Error', 'No se pudo obtener el ID de Auth0. Por favor, reinicie la sesión.');
             setLoading(false);
             return;
         }
@@ -44,14 +42,11 @@ export default function HomeScreen() {
             });
 
             if (response.ok) {
-                Alert.alert('Éxito', '¡Datos actualizados correctamente en tu base de datos!');
             } else {
                 const errorText = await response.text();
-                Alert.alert('Error', `Error al actualizar: ${errorText}`);
             }
         } catch (error) {
             console.error('Error de conexión:', error);
-            Alert.alert('Error de conexión', 'No se pudo conectar con el servidor.');
         } finally {
             setLoading(false);
         }
@@ -161,3 +156,4 @@ const styles = StyleSheet.create({
     }
 
 });
+
