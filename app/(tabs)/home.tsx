@@ -1,5 +1,3 @@
-// ARCHIVO: home.tsx (Perfil de Usuario y Edición)
-
 import { useRouter } from 'expo-router';
 import React, { useState } from 'react';
 import { Alert, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
@@ -161,4 +159,5 @@ const styles = StyleSheet.create({
         color: 'black', 
         fontWeight: 'bold'
     }
+
 });
